@@ -84,42 +84,77 @@
 
 // export default App;
 
-import React, { Component } from "react";
+// import React, { Component } from "react";
 
-class App extends Component {
-  constructor(props) {
-    super(props);
+// class App extends Component {
+//   constructor(props) {
+//     super(props);
 
-    this.state = { seconds: 10, pause: '' };
+//     this.state = { seconds: 10, pause: '' };
   
-  }
-  tick() {
-    if (this.state.seconds === 0 || this.state.pause === 'pause') 
-    return;
-    else {
-      this.setState(prevState => ({
-        seconds: prevState.seconds - 1
-      }));
-    }
-  }
+//   }
+//   tick() {
+//     if (this.state.seconds === 0 || this.state.pause === 'pause') 
+//     return;
+//     else {
+//       this.setState(prevState => ({
+//         seconds: prevState.seconds - 1
+//       }));
+//     }
+//   }
 
 
 
-  componentDidMount() {
-    this.interval = setInterval(() => this.tick(), 1000);
-  }
+//   componentDidMount() {
+//     this.interval = setInterval(() => this.tick(), 1000);
+//   }
 
-  componentWillUnmount() {
-    clearInterval(this.interval);
-  }
+//   componentWillUnmount() {
+//     clearInterval(this.interval);
+//   }
 
-  render() {
-    return (<>
-    <h1>Seconds: {this.state.seconds}</h1>
-    <button onClick={()=> this.setState({pause: 'pause'})}>pause</button>
-    <button onClick={()=>this.setState({seconds: 10, pause: ''})}> reset count</button>
-    </>)
-  }
+//   render() {
+//     return (<>
+//     <h1>Seconds: {this.state.seconds}</h1>
+//     <button onClick={()=> this.setState({pause: 'pause'})}>pause</button>
+//     <button onClick={()=>this.setState({seconds: 10, pause: ''})}> reset count</button>
+//     </>)
+//   }
+// }
+
+// export default App;
+
+import React from 'react'
+import {Router, Route, Switch} from 'react-router-dom'
+import Pics from './components/pages/Pics'
+import Videos from './components/pages/Videos'
+import Wiki from './components/pages/Wiki'
+import News from './components/pages/News'
+import Home from './components/pages/Home'
+import history from './history'
+import Header from './components/Header'
+import Footer from './components/Footer'
+
+const App = () => {
+
+return (
+  <div className='ui container'>
+    <Router history={history}>
+      <Header />
+      <div>
+        <Switch>
+          <Route path='/' exact component={Home}/>
+          <Route path='/home' exact component={Home}/>
+          <Route path='/pics' exact component={Pics}/>
+          <Route path='/videos' exact component={Videos}/>
+          <Route path='/wiki' exact component={Wiki}/>
+          <Route path='/news' exact component={News}/>
+        </Switch>
+      </div>
+      <Footer />
+    </Router>
+  </div>
+)
 }
 
 export default App;
