@@ -125,7 +125,7 @@
 // export default App;
 
 import React from 'react'
-import {Router, Route, Switch} from 'react-router-dom'
+import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import Pics from './components/pages/Pics'
 import Videos from './components/pages/Videos'
 import Wiki from './components/pages/Wiki'
@@ -138,21 +138,21 @@ import Footer from './components/Footer'
 const App = () => {
 
 return (
-  <div className='ui container'>
-    <Router history={history}>
+  <div className='ui container' style={{marginTop:'30px'}}>
+    <BrowserRouter history={history}>
       <Header />
       <div>
-        <Switch>
-          <Route path='/' exact component={Home}/>
-          <Route path='/home' exact component={Home}/>
-          <Route path='/pics' exact component={Pics}/>
-          <Route path='/videos' exact component={Videos}/>
-          <Route path='/wiki' exact component={Wiki}/>
-          <Route path='/news' exact component={News}/>
-        </Switch>
+        <Routes>
+          <Route path='/'  element={<Home/>}/>
+          <Route path='/home' element={<Home/>}/>
+          <Route path='/pics' element={<Pics/>}/>
+          <Route path='/videos' element={<Videos/>}/>
+          <Route path='/wiki' element={<Wiki/>}/>
+          <Route path='/news' element={<News/>}/>
+        </Routes>
       </div>
       <Footer />
-    </Router>
+    </BrowserRouter>
   </div>
 )
 }

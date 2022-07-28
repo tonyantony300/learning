@@ -1,29 +1,30 @@
 import React from "react";
+import {Link} from 'react-router-dom';
 
 
 class header extends React.Component{
     render(){
         return(
             <>
-            <div class="ui inverted segment">
-            <div class="ui inverted secondary pointing menu">
-                <a class="active item">
+            <div className="ui inverted segment">
+            <div className="ui inverted secondary pointing menu">
+                <Link to='/home' className="active item">
                     Home 
-                    </a>
-                <a class="item">
+                    </Link>
+                <Link to='/pics' className="item">
                     Pictures
-                </a>
-                <a class="item">
+                </Link>
+                <Link to='/videos' className="item">
                     Videos
-                </a>
-                <a class="item">
+                </Link>
+                <Link to ='/news' className="item">
                     News
-                </a>
-                <a class="item">
+                </Link>
+                <Link to='/wiki' className="item">
                     Wiki
-                </a>
-                <div class="right menu">
-                    <a class="ui item">
+                </Link>
+                <div className="right menu">
+                    <a className="ui item">
                     Login
                     </a>
                 </div>
