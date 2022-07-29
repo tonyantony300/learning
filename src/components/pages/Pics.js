@@ -1,14 +1,26 @@
 import React from "react";
+import { connect } from "react-redux";
+import {fetchPics} from '../../actions/index'
 
 
 
 class Pics extends React.Component{
 
     state = { term: ''}
+
+    componentDidMount (){
+        
+        const {term} = this.state.term
+        this.props.fetchPics(term);
+       
+        
+    }
   
     render(){
-        return(
 
+        console.log(this.props.pics);
+        return(
+       
             // <input  value={this.state.term} onChange={e=>{this.setState({term: e.target.value})}}/>
            
             <div className="ui raised secondary segment">
@@ -54,4 +66,8 @@ class Pics extends React.Component{
     }
 }
 
-export default Pics;
+const mapStateToProps = (state) => {
+    return { pics: state.pics}
+}
+
+export default connect(mapStateToProps,{fetchPics})(Pics);

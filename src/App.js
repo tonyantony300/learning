@@ -126,6 +126,7 @@
 
 import React from 'react'
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
+
 import Pics from './components/pages/Pics'
 import Videos from './components/pages/Videos'
 import Wiki from './components/pages/Wiki'
