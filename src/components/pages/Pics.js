@@ -10,14 +10,14 @@ class Pics extends React.Component{
 
     componentDidMount (){
         
-        const {term} = this.state.term
-        this.props.fetchPics(term);
+        
+        this.props.fetchPics(this.state.term);
        
         
     }
   
     render(){
-
+        console.log(this.state.term);
         console.log(this.props.pics);
         return(
        
@@ -25,7 +25,7 @@ class Pics extends React.Component{
            
             <div className="ui raised secondary segment">
                 <div className="ui segment">
-                        <form className="ui form" onSubmit={e=>{e.preventDefault(); console.log(this.state.term)}}> 
+                        <form className="ui form" onSubmit={e=>{e.preventDefault();}}> 
                              <div className="field" >
                                  <label>type here!!</label> 
                                  <input type='text' value={this.state.term} onChange={e=>{this.setState({term: e.target.value})}}/>

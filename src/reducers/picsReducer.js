@@ -9,7 +9,7 @@ export default (state=[], action)=>{
     switch(action.type){
 
         case FETCH_PICS:
-            return {...state, [action.payload.term]: action.payload}
+            return [...state, action.payload]
     
      
      default:
